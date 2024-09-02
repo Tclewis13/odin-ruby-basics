@@ -25,4 +25,16 @@ def caesar_cipher(message, shift)
   cipherMessage = charArray.join
 end
 
+def dictionary_count(input_string, dictionary)
+  output_array = []
+  dictionary.each {|word| word.downcase!}
+  input_string.downcase!
+
+  input_string = input_string.downcase
+  dictionary.each {|word| output_array.push(input_string.scan(word).length)}
+  return output_array
+end
+
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+puts dictionary_count("Howdy partner, sit down! How's it going?", dictionary)
 #puts caesar_cipher("What a string!", 5)
