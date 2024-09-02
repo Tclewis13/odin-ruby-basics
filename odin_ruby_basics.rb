@@ -56,6 +56,23 @@ def stock_picker(input_array)
   return [best_buy,best_sell]
 end
 
+def bubble_sort(input_array)
+  made_swap = true;
+
+  while made_swap == true do
+    made_swap = false
+    input_array.each_with_index do |number, index|
+      if !input_array[index + 1].nil? 
+        if input_array[index] > input_array[index + 1]
+          input_array[index], input_array[index + 1] = input_array[index + 1], input_array[index]
+          made_swap = true
+        end
+      end
+    end
+  end
+
+  return input_array
+end
 
 
 #dictionary_count test
@@ -65,5 +82,8 @@ end
 #caesar_cipher test
 #puts caesar_cipher("What a string!", 5)
 
-##stockpicker test
-puts stock_picker([17,3,6,9,15,8,6,1,10])
+#stockpicker test
+#puts stock_picker([17,3,6,9,15,8,6,1,10])
+
+#bubble sort test
+puts bubble_sort([4,3,78,2,0,2])
