@@ -40,6 +40,23 @@ def dictionary_count(input_string, dictionary)
   return output_hash
 end
 
+def stock_picker(input_array)
+  best_buy = 0
+  best_sell = 0
+  best_profit = 0
+  input_array.each_with_index do |buy_price, buy_index|
+    input_array.each_with_index do |sell_price, sell_index|
+      if sell_price - buy_price > best_profit && buy_index < sell_index
+        best_profit = sell_price - buy_price
+        best_buy = buy_index
+        best_sell = sell_index
+      end
+    end
+  end
+  return [best_buy,best_sell]
+end
+
+
 
 #dictionary_count test
 #dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
@@ -47,3 +64,6 @@ end
 
 #caesar_cipher test
 #puts caesar_cipher("What a string!", 5)
+
+##stockpicker test
+puts stock_picker([17,3,6,9,15,8,6,1,10])
