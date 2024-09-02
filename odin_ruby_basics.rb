@@ -17,10 +17,12 @@ def caesar_cipher(message, shift)
         remainder = remainder.abs
         char = 65 + remainder
       end
+    else
+      char
     end
   end
   charArray = charArray.map {|char| char.chr}
   cipherMessage = charArray.join
 end
 
-puts caesar_cipher('WXYZ', 3)
+#puts caesar_cipher("What a string!", 5)
