@@ -9,10 +9,18 @@ def caesar_cipher(message, shift)
         remainder = remainder.abs
         char = 97 + remainder
       end
+    elsif char.between?(64,91)
+      if char + shift < 91
+        char + shift
+      else
+        remainder = 91 - char - shift
+        remainder = remainder.abs
+        char = 65 + remainder
+      end
     end
   end
   charArray = charArray.map {|char| char.chr}
   cipherMessage = charArray.join
 end
 
-puts caesar_cipher('wxyz', 3)
+puts caesar_cipher('WXYZ', 3)
